@@ -1,9 +1,15 @@
 #!/Library/Frameworks/Python.framework/Versions/3.9/bin/python3
 import sys
-from lib.arg_parser import parse_input                          #type: ignore
+from lib.input_processor import handle_input, parse_input                          #type: ignore
 
 
-input_args = sys.argv
-parsed_task_data = parse_input(list_args=input_args)
-if parsed_task_data:
-    print(parsed_task_data)
+def main():
+    task_input = handle_input(input=sys.argv)
+    if task_input:
+        parsed_task_data = parse_input(input_args=task_input)
+        print(parsed_task_data)
+
+
+
+if __name__ == '__main__':
+    main()
