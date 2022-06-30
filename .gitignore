@@ -158,3 +158,4 @@ temp4.py
 test*.py
 test*.txt
 urls.py
+tasks.pickle
