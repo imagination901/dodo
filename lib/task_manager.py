@@ -1,11 +1,13 @@
 from datamodel import ParsedTaskData, Task
 import pickle
+import os
 
 
 def load_tasks() -> list[Task]:
     tasks = []
     try:
-        with open('tasks.pickle', 'rb') as file:
+        filepath = f'{os.path.dirname(__file__)}/tasks.pickle'
+        with open(filepath, 'rb') as file:
             tasks = pickle.load(file)
     except FileNotFoundError:
         pass
@@ -13,7 +15,8 @@ def load_tasks() -> list[Task]:
 
 
 def _save_tasks(tasks: list[Task]) -> None:
-    with open('tasks.pickle', 'wb') as file:
+    filepath = f'{os.path.dirname(__file__)}/tasks.pickle'
+    with open(filepath, 'wb') as file:
         pickle.dump(obj=tasks, file=file, protocol=pickle.HIGHEST_PROTOCOL)
 
 
