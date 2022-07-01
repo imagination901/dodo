@@ -3,7 +3,7 @@ import pickle
 import os
 
 
-def load_tasks() -> list[Task]:
+def _load_tasks() -> list[Task]:
     tasks = []
     try:
         filepath = f'{os.path.dirname(__file__)}/tasks.pickle'

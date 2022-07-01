@@ -1,6 +1,7 @@
 from typing import Optional
 from datamodel import ParsedTaskData, Task
 from lib.task_manager import add_task                           #type: ignore
+from lib.view_controller import beautify_output                 #type: ignore
 
 
 def _parse_input(input_args: Optional[list[str]]) -> Optional[ParsedTaskData]:
@@ -23,7 +24,7 @@ def _parse_input(input_args: Optional[list[str]]) -> Optional[ParsedTaskData]:
         return None
 
 
-def handle_input(input: list[str], task_list: list[Task]) -> None:
+def handle_user_input(input: list[str], task_list: list[Task]) -> None:
 
     def _called_with_no_args() -> bool:
         return True if len(input) == 1 else False
@@ -35,13 +36,12 @@ def handle_input(input: list[str], task_list: list[Task]) -> None:
         return False
 
     def _show_help():
-        print("To add a new task: 'dodo this new task'")
+        msg = "To add a new task: 'dodo this new task'"
+        beautify_output(tasks=task_list, message=msg)
     
     def _show_tasks():
-        if not task_list:
-            print("Such empty. Type 'dodo To water the flowers'")
-        for task in task_list:
-            print(task)
+        msg = "New task: 'dodo My new task'"
+        beautify_output(tasks=task_list, message=msg)
 
 
     if _called_with_no_args():
