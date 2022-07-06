@@ -36,11 +36,13 @@ def handle_user_input(input: list[str], task_list: list[Task]) -> None:
         return False
 
     def _show_help():
-        msg = "To add a new task: 'dodo this new task'"
-        beautify_output(tasks=task_list, message=msg)
+        help = ''' Help:
+        New task - 'dodo To water flowers'
+        '''
+        print(help)
     
     def _show_tasks():
-        msg = "New task: 'dodo My new task'"
+        msg = " Type 'dodo -h' for help."
         beautify_output(tasks=task_list, message=msg)
 
 
