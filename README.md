@@ -1,4 +1,4 @@
-# dodo is a tiny, yet powerful and super easy-to-use command line todo app.
+# dodo is a tiny and super easy-to-use command line todo app.
 
 ## How to get it installed?
 1. Get a link to clone this repository to your local machine via Code > HTTPS > copy the link.
